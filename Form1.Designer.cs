@@ -75,7 +75,8 @@
             // 
             // BntOK
             // 
-            this.BntOK.BackColor = System.Drawing.SystemColors.Highlight;
+            this.BntOK.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.BntOK.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BntOK.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BntOK.ForeColor = System.Drawing.Color.MidnightBlue;
             this.BntOK.Location = new System.Drawing.Point(162, 318);
@@ -88,7 +89,8 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnCancel.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancel.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.MidnightBlue;
             this.btnCancel.Location = new System.Drawing.Point(287, 318);
@@ -119,7 +121,7 @@
             // picLogin
             // 
             this.picLogin.Image = global::H_P_II_Clase4.Properties.Resources.Login;
-            this.picLogin.Location = new System.Drawing.Point(206, 37);
+            this.picLogin.Location = new System.Drawing.Point(217, 37);
             this.picLogin.Name = "picLogin";
             this.picLogin.Size = new System.Drawing.Size(126, 68);
             this.picLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -130,8 +132,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(558, 450);
+            this.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.ClientSize = new System.Drawing.Size(529, 726);
             this.Controls.Add(this.picLogin);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtUser);
