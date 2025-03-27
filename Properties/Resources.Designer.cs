@@ -73,6 +73,26 @@ namespace H_P_II_Clase4.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Logos__Stake_4 {
+            get {
+                object obj = ResourceManager.GetObject("Logos. Stake 4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logos1 {
+            get {
+                object obj = ResourceManager.GetObject("Logos1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap png_transparent_login_computer_icons_password_login_black_symbol_subscription_business_model_thumbnail {
             get {
                 object obj = ResourceManager.GetObject("png-transparent-login-computer-icons-password-login-black-symbol-subscription-bus" +

@@ -23,16 +23,6 @@ namespace H_P_II_Clase4
             Conexion();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         public void Conexion()
         {
             
@@ -46,7 +36,7 @@ namespace H_P_II_Clase4
             SQLiteCommand cmd_sqlite = conexion_sqlite.CreateCommand();
 
             // Crear la tabla si no existe
-            cmd_sqlite.CommandText = "CREATE TABLE  tblUser (id INTEGER PRIMARY KEY, name VARCHAR(100) UNIQUE, pass VARCHAR(100) UNIQUE);";
+            cmd_sqlite.CommandText = "CREATE TABLE  tblUser (id INTEGER PRIMARY KEY, name VARCHAR(100) UNIQUE, pass VARCHAR(100) );";
             cmd_sqlite.ExecuteNonQuery();
 
 
@@ -134,7 +124,19 @@ namespace H_P_II_Clase4
             this.Close();
         }
 
-        private void lblUser_Click(object sender, EventArgs e)
+        private void lblRegistro_Click(object sender, EventArgs e)
+        {
+            
+            frmRegisttro frm = new frmRegisttro();
+            if (frm.ShowDialog() == DialogResult.OK) // Solo limpia si el usuario se registró
+            {
+                txtUser.Text = "";
+                txtPass.Text = "";
+                txtUser.Focus(); // Pone el cursor en el campo de usuario
+            }
+        }
+
+        private void lblMensajeRegistro_Click(object sender, EventArgs e)
         {
 
         }
