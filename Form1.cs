@@ -92,6 +92,11 @@ namespace H_P_II_Clase4
                 MessageBox.Show("Por favor, ingrese usuario y contraseña.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (!UsuarioExiste(usuario))
+            {
+                MessageBox.Show("El usuario no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             if (ValidarUsuario(contraseña,usuario))
             {
@@ -112,11 +117,7 @@ namespace H_P_II_Clase4
                 }
             }
 
-            if (!UsuarioExiste(usuario))
-            {
-                MessageBox.Show("El usuario no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+           
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -55,7 +55,7 @@
             this.lblRegistro.Name = "lblRegistro";
             this.lblRegistro.Size = new System.Drawing.Size(251, 54);
             this.lblRegistro.TabIndex = 0;
-            this.lblRegistro.Text = "REGISTRATE";
+            this.lblRegistro.Text = "REGÍSTRATE";
             this.lblRegistro.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblUsuario
