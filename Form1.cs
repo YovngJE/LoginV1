@@ -145,5 +145,10 @@ namespace H_P_II_Clase4
         {
 
         }
+
+        private void panelLogin_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -63,5 +63,10 @@ namespace H_P_II_Clase4
             this.DialogResult = DialogResult.OK; // Permite saber en `formPrinci` que el registro fue exitoso.
             this.Close(); //
         }
+
+        private void Cancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -70,7 +70,7 @@
             this.BntOK.Location = new System.Drawing.Point(50, 235);
             this.BntOK.Name = "BntOK";
             this.BntOK.Size = new System.Drawing.Size(300, 35);
-            this.BntOK.TabIndex = 4;
+            this.BntOK.TabIndex = 5;
             this.BntOK.Text = "Iniciar Sesión";
             this.BntOK.UseVisualStyleBackColor = false;
             this.BntOK.Click += new System.EventHandler(this.BntOK_Click);
@@ -86,7 +86,7 @@
             this.btnCancel.Location = new System.Drawing.Point(50, 300);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(296, 35);
-            this.btnCancel.TabIndex = 5;
+            this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Salir";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -98,15 +98,15 @@
             this.txtUser.Location = new System.Drawing.Point(50, 110);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(300, 30);
-            this.txtUser.TabIndex = 6;
+            this.txtUser.TabIndex = 2;
             // 
             // txtPass
             // 
             this.txtPass.Location = new System.Drawing.Point(50, 190);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
-            this.txtPass.Size = new System.Drawing.Size(300, 22);
-            this.txtPass.TabIndex = 7;
+            this.txtPass.Size = new System.Drawing.Size(306, 22);
+            this.txtPass.TabIndex = 4;
             // 
             // lblMensajeRegistro
             // 
@@ -116,7 +116,7 @@
             this.lblMensajeRegistro.Location = new System.Drawing.Point(65, 360);
             this.lblMensajeRegistro.Name = "lblMensajeRegistro";
             this.lblMensajeRegistro.Size = new System.Drawing.Size(159, 23);
-            this.lblMensajeRegistro.TabIndex = 9;
+            this.lblMensajeRegistro.TabIndex = 7;
             this.lblMensajeRegistro.Text = "¿No tienes cuenta?";
             this.lblMensajeRegistro.Click += new System.EventHandler(this.lblMensajeRegistro_Click);
             // 
@@ -129,7 +129,7 @@
             this.lblRegistro.Location = new System.Drawing.Point(230, 355);
             this.lblRegistro.Name = "lblRegistro";
             this.lblRegistro.Size = new System.Drawing.Size(109, 28);
-            this.lblRegistro.TabIndex = 10;
+            this.lblRegistro.TabIndex = 8;
             this.lblRegistro.Text = "Registrate";
             this.lblRegistro.Click += new System.EventHandler(this.lblRegistro_Click);
             // 
@@ -150,6 +150,7 @@
             this.panelLogin.Name = "panelLogin";
             this.panelLogin.Size = new System.Drawing.Size(400, 403);
             this.panelLogin.TabIndex = 11;
+            this.panelLogin.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLogin_Paint);
             // 
             // lblContraseña
             // 
@@ -158,9 +159,9 @@
             this.lblContraseña.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblContraseña.Location = new System.Drawing.Point(50, 160);
             this.lblContraseña.Name = "lblContraseña";
-            this.lblContraseña.Size = new System.Drawing.Size(97, 23);
-            this.lblContraseña.TabIndex = 12;
-            this.lblContraseña.Text = "Contraseña";
+            this.lblContraseña.Size = new System.Drawing.Size(101, 23);
+            this.lblContraseña.TabIndex = 3;
+            this.lblContraseña.Text = "Contraseña:";
             // 
             // lblUsuario
             // 
@@ -169,9 +170,9 @@
             this.lblUsuario.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblUsuario.Location = new System.Drawing.Point(55, 80);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(68, 23);
-            this.lblUsuario.TabIndex = 11;
-            this.lblUsuario.Text = "Usuario";
+            this.lblUsuario.Size = new System.Drawing.Size(72, 23);
+            this.lblUsuario.TabIndex = 1;
+            this.lblUsuario.Text = "Usuario:";
             // 
             // panelImagen
             // 
@@ -205,7 +206,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formPrinci";
-            this.Text = "Login";
+            this.Text = "Iniciar Sesión ";
             this.panelLogin.ResumeLayout(false);
             this.panelLogin.PerformLayout();
             this.panelImagen.ResumeLayout(false);
