@@ -140,5 +140,10 @@ namespace H_P_II_Clase4
         {
 
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

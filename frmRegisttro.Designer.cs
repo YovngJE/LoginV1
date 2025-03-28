@@ -42,7 +42,7 @@
             // lblRegistro
             // 
             this.lblRegistro.AutoSize = true;
-            this.lblRegistro.Location = new System.Drawing.Point(273, 25);
+            this.lblRegistro.Location = new System.Drawing.Point(83, 25);
             this.lblRegistro.Name = "lblRegistro";
             this.lblRegistro.Size = new System.Drawing.Size(149, 16);
             this.lblRegistro.TabIndex = 0;
