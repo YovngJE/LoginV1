@@ -15,70 +15,100 @@ namespace H_P_II_Clase4
     public partial class formPrinci : Form
     {
         
-        private int intentosFallidos = 0;
-        private const int MAX_INTENTOS = 3;
+        
         public formPrinci()
         {
             InitializeComponent();
             Conexion();
         }
-
+        private int intentosFallidos = 0;
+        private const int MAX_INTENTOS = 3;
         public void Conexion()
         {
-            
-            
+            SQLiteConnection conexion_sqlite = null;
+            try
+            {
+                conexion_sqlite = new SQLiteConnection("Data Source=database.db;Version=3;Compress=True;New=True;");
+                conexion_sqlite.Open();
 
-            // Crear conexión a SQLite
-            SQLiteConnection conexion_sqlite = new SQLiteConnection($"Data Source=database.db;Version=3;Compress=True; New= True;");
-            conexion_sqlite.Open();
+                SQLiteCommand cmd_sqlite = conexion_sqlite.CreateCommand();
 
-            // Crear comando SQL
-            SQLiteCommand cmd_sqlite = conexion_sqlite.CreateCommand();
+                cmd_sqlite.CommandText = "CREATE TABLE  tblUser (id INTEGER PRIMARY KEY, name VARCHAR(100) UNIQUE, pass VARCHAR(100));";
+                cmd_sqlite.ExecuteNonQuery();
 
-            // Crear la tabla si no existe
-            cmd_sqlite.CommandText = "CREATE TABLE  tblUser (id INTEGER PRIMARY KEY, name VARCHAR(100) UNIQUE, pass VARCHAR(100) );";
-            cmd_sqlite.ExecuteNonQuery();
-
-
-            cmd_sqlite.CommandText = @"
-            INSERT INTO tblUser (name, pass) VALUES ('YE', '123');
-            INSERT INTO tblUser (name, pass) VALUES ('Trainer', '102458J');
-            INSERT INTO tblUser (name, pass) VALUES ('Blackie', 'Perea17');
-            INSERT INTO tblUser (name, pass) VALUES ('Jeni', '1025');
-             ";
-
-            cmd_sqlite.ExecuteNonQuery();
-
-            // Cerrar conexión
-            conexion_sqlite.Close();
+                cmd_sqlite.CommandText = @"
+        INSERT  INTO tblUser (name, pass) VALUES ('YE', '123');
+        INSERT  INTO tblUser (name, pass) VALUES ('Trainer', '102458J');
+        INSERT  INTO tblUser (name, pass) VALUES ('Blackie', 'Perea17');
+        INSERT  INTO tblUser (name, pass) VALUES ('Jeni', '1025');";
+                cmd_sqlite.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al conectar con la base de datos:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (conexion_sqlite != null && conexion_sqlite.State == ConnectionState.Open)
+                    conexion_sqlite.Close();
+            }
         }
 
-        public bool ValidarUsuario(string contraseña,string usuario) {
-            SQLiteConnection sQLiteConnection = new SQLiteConnection("Data Source=database.db;Version=3;");
-            sQLiteConnection.Open();
-
-            SQLiteCommand conexion_sql =new SQLiteCommand("SELECT pass FROM tblUser WHERE name = @usuario", sQLiteConnection);
-            conexion_sql.Parameters.Add("@usuario", usuario);
-
-            object result = conexion_sql.ExecuteScalar();
-            if (result != null)
+        public bool ValidarUsuario(string contraseña, string usuario)
+        {
+            SQLiteConnection sQLiteConnection = null;
+            try
             {
-                string contraseñaAlmacenada = result.ToString();
-                return contraseñaAlmacenada == contraseña;
+                sQLiteConnection = new SQLiteConnection("Data Source=database.db;Version=3;");
+                sQLiteConnection.Open();
+
+                SQLiteCommand conexion_sql = new SQLiteCommand("SELECT pass FROM tblUser WHERE name = @usuario", sQLiteConnection);
+                conexion_sql.Parameters.Add("@usuario", usuario);
+
+                object result = conexion_sql.ExecuteScalar();
+                if (result != null)
+                {
+                    string contraseñaAlmacenada = result.ToString();
+                    return contraseñaAlmacenada == contraseña;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al validar usuario:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (sQLiteConnection != null && sQLiteConnection.State == ConnectionState.Open)
+                    sQLiteConnection.Close();
             }
             return false;
         }
 
         public bool UsuarioExiste(string usuario)
         {
-            SQLiteConnection sQLiteConnection = new SQLiteConnection("Data Source=database.db;Version=3;");
-            sQLiteConnection.Open();
-            using (SQLiteCommand cmd = new SQLiteCommand("SELECT COUNT(*) FROM tblUser WHERE name = @usuario", sQLiteConnection))
+            SQLiteConnection sQLiteConnection = null;
+            try
             {
-                cmd.Parameters.Add("@usuario", usuario);
-                int count = Convert.ToInt32(cmd.ExecuteScalar());
-                return count > 0;
+                sQLiteConnection = new SQLiteConnection("Data Source=database.db;Version=3;");
+                sQLiteConnection.Open();
+
+                using (SQLiteCommand cmd = new SQLiteCommand("SELECT COUNT(*) FROM tblUser WHERE name = @usuario", sQLiteConnection))
+                {
+                    cmd.Parameters.Add("@usuario", usuario);
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0;
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al verificar existencia del usuario:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (sQLiteConnection != null && sQLiteConnection.State == ConnectionState.Open)
+                    sQLiteConnection.Close();
+            }
+            return false;
         }
 
 
@@ -101,7 +131,7 @@ namespace H_P_II_Clase4
             if (ValidarUsuario(contraseña,usuario))
             {
                 MessageBox.Show("Inicio de sesion exito!");
-                Form2 f = new Form2(txtUser.Text);
+                FormApp f = new FormApp(txtUser.Text);
                 f.Show();
                 this.Hide();
             }
@@ -135,21 +165,7 @@ namespace H_P_II_Clase4
                 txtPass.Text = "";
                 txtUser.Focus(); // Pone el cursor en el campo de usuario
             }
-        }
-
-        private void lblMensajeRegistro_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelLogin_Paint(object sender, PaintEventArgs e)
-        {
-
+            this.Hide();
         }
     }
 }

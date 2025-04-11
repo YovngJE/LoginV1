@@ -165,6 +165,7 @@
             this.panelRegistrarUsuario.Name = "panelRegistrarUsuario";
             this.panelRegistrarUsuario.Size = new System.Drawing.Size(400, 403);
             this.panelRegistrarUsuario.TabIndex = 9;
+            this.panelRegistrarUsuario.Paint += new System.Windows.Forms.PaintEventHandler(this.panelRegistrarUsuario_Paint);
             // 
             // panelImagen
             // 

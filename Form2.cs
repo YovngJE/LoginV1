@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace H_P_II_Clase4
 {
-    public partial class Form2 : Form
+    public partial class FormApp : Form
     {
         string nombrerecibido;
-        public Form2(string valor)
+        public FormApp(string valor)
         {
             InitializeComponent();
             lblMsgRec.Text = valor;

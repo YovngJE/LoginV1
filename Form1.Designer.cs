@@ -118,7 +118,7 @@
             this.lblMensajeRegistro.Size = new System.Drawing.Size(159, 23);
             this.lblMensajeRegistro.TabIndex = 7;
             this.lblMensajeRegistro.Text = "¿No tienes cuenta?";
-            this.lblMensajeRegistro.Click += new System.EventHandler(this.lblMensajeRegistro_Click);
+//            this.lblMensajeRegistro.Click += new System.EventHandler(this.lblMensajeRegistro_Click);
             // 
             // lblRegistro
             // 
@@ -150,7 +150,7 @@
             this.panelLogin.Name = "panelLogin";
             this.panelLogin.Size = new System.Drawing.Size(400, 403);
             this.panelLogin.TabIndex = 11;
-            this.panelLogin.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLogin_Paint);
+//            this.panelLogin.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLogin_Paint);
             // 
             // lblContraseña
             // 
@@ -193,7 +193,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+//            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // formPrinci
             // 
