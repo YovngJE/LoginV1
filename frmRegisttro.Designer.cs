@@ -37,13 +37,13 @@
             this.txtConfirmarContraseña = new System.Windows.Forms.TextBox();
             this.lblConfirmarContraseña = new System.Windows.Forms.Label();
             this.btnRegistrar = new System.Windows.Forms.Button();
-            this.Cancelar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.panelRegistrarUsuario = new System.Windows.Forms.Panel();
             this.panelImagen = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.imgRegistrar = new System.Windows.Forms.PictureBox();
             this.panelRegistrarUsuario.SuspendLayout();
             this.panelImagen.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRegistrar)).BeginInit();
             this.SuspendLayout();
             // 
             // lblRegistro
@@ -133,25 +133,25 @@
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
-            // Cancelar
+            // btnCancelar
             // 
-            this.Cancelar.BackColor = System.Drawing.Color.IndianRed;
-            this.Cancelar.FlatAppearance.BorderSize = 0;
-            this.Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Cancelar.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cancelar.ForeColor = System.Drawing.Color.White;
-            this.Cancelar.Location = new System.Drawing.Point(50, 368);
-            this.Cancelar.Name = "Cancelar";
-            this.Cancelar.Size = new System.Drawing.Size(300, 35);
-            this.Cancelar.TabIndex = 8;
-            this.Cancelar.Text = "Cancelar";
-            this.Cancelar.UseVisualStyleBackColor = false;
-            this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
+            this.btnCancelar.BackColor = System.Drawing.Color.IndianRed;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(50, 368);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(300, 35);
+            this.btnCancelar.TabIndex = 8;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.Cancelar_Click);
             // 
             // panelRegistrarUsuario
             // 
             this.panelRegistrarUsuario.BackColor = System.Drawing.Color.DarkKhaki;
-            this.panelRegistrarUsuario.Controls.Add(this.Cancelar);
+            this.panelRegistrarUsuario.Controls.Add(this.btnCancelar);
             this.panelRegistrarUsuario.Controls.Add(this.btnRegistrar);
             this.panelRegistrarUsuario.Controls.Add(this.txtConfirmarContraseña);
             this.panelRegistrarUsuario.Controls.Add(this.lblConfirmarContraseña);
@@ -165,24 +165,25 @@
             this.panelRegistrarUsuario.Name = "panelRegistrarUsuario";
             this.panelRegistrarUsuario.Size = new System.Drawing.Size(400, 403);
             this.panelRegistrarUsuario.TabIndex = 9;
+            this.panelRegistrarUsuario.Paint += new System.Windows.Forms.PaintEventHandler(this.panelRegistrarUsuario_Paint);
             // 
             // panelImagen
             // 
-            this.panelImagen.Controls.Add(this.pictureBox1);
+            this.panelImagen.Controls.Add(this.imgRegistrar);
             this.panelImagen.Location = new System.Drawing.Point(400, 1);
             this.panelImagen.Name = "panelImagen";
             this.panelImagen.Size = new System.Drawing.Size(381, 408);
             this.panelImagen.TabIndex = 10;
             // 
-            // pictureBox1
+            // imgRegistrar
             // 
-            this.pictureBox1.Image = global::H_P_II_Clase4.Properties.Resources.Logos1;
-            this.pictureBox1.Location = new System.Drawing.Point(-4, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(385, 403);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.imgRegistrar.Image = global::H_P_II_Clase4.Properties.Resources.Logos1;
+            this.imgRegistrar.Location = new System.Drawing.Point(-4, 0);
+            this.imgRegistrar.Name = "imgRegistrar";
+            this.imgRegistrar.Size = new System.Drawing.Size(385, 403);
+            this.imgRegistrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgRegistrar.TabIndex = 0;
+            this.imgRegistrar.TabStop = false;
             // 
             // frmRegisttro
             // 
@@ -198,7 +199,7 @@
             this.panelRegistrarUsuario.ResumeLayout(false);
             this.panelRegistrarUsuario.PerformLayout();
             this.panelImagen.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRegistrar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -213,9 +214,9 @@
         private System.Windows.Forms.TextBox txtConfirmarContraseña;
         private System.Windows.Forms.Label lblConfirmarContraseña;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.Button Cancelar;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Panel panelRegistrarUsuario;
         private System.Windows.Forms.Panel panelImagen;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox imgRegistrar;
     }
 }

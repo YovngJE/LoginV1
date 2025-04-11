@@ -40,10 +40,10 @@
             this.lblContraseña = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.panelImagen = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.imgLogin = new System.Windows.Forms.PictureBox();
             this.panelLogin.SuspendLayout();
             this.panelImagen.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLogin)).BeginInit();
             this.SuspendLayout();
             // 
             // lgbLogin
@@ -118,7 +118,7 @@
             this.lblMensajeRegistro.Size = new System.Drawing.Size(159, 23);
             this.lblMensajeRegistro.TabIndex = 7;
             this.lblMensajeRegistro.Text = "¿No tienes cuenta?";
-            this.lblMensajeRegistro.Click += new System.EventHandler(this.lblMensajeRegistro_Click);
+//            this.lblMensajeRegistro.Click += new System.EventHandler(this.lblMensajeRegistro_Click);
             // 
             // lblRegistro
             // 
@@ -150,7 +150,7 @@
             this.panelLogin.Name = "panelLogin";
             this.panelLogin.Size = new System.Drawing.Size(400, 403);
             this.panelLogin.TabIndex = 11;
-            this.panelLogin.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLogin_Paint);
+//            this.panelLogin.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLogin_Paint);
             // 
             // lblContraseña
             // 
@@ -176,24 +176,24 @@
             // 
             // panelImagen
             // 
-            this.panelImagen.Controls.Add(this.pictureBox1);
+            this.panelImagen.Controls.Add(this.imgLogin);
             this.panelImagen.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelImagen.Location = new System.Drawing.Point(406, 0);
             this.panelImagen.Name = "panelImagen";
             this.panelImagen.Size = new System.Drawing.Size(376, 403);
             this.panelImagen.TabIndex = 12;
             // 
-            // pictureBox1
+            // imgLogin
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::H_P_II_Clase4.Properties.Resources.Logos1;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(376, 403);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.imgLogin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imgLogin.Image = global::H_P_II_Clase4.Properties.Resources.Logos1;
+            this.imgLogin.Location = new System.Drawing.Point(0, 0);
+            this.imgLogin.Name = "imgLogin";
+            this.imgLogin.Size = new System.Drawing.Size(376, 403);
+            this.imgLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgLogin.TabIndex = 0;
+            this.imgLogin.TabStop = false;
+//            this.imgLogin.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // formPrinci
             // 
@@ -210,7 +210,7 @@
             this.panelLogin.ResumeLayout(false);
             this.panelLogin.PerformLayout();
             this.panelImagen.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLogin)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -226,7 +226,7 @@
         private System.Windows.Forms.Label lblRegistro;
         private System.Windows.Forms.Panel panelLogin;
         private System.Windows.Forms.Panel panelImagen;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox imgLogin;
         private System.Windows.Forms.Label lblContraseña;
         private System.Windows.Forms.Label lblUsuario;
     }
