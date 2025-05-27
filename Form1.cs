@@ -54,7 +54,7 @@ namespace H_P_II_Clase4
             }
         }
 
-        public bool ValidarUsuario(string contraseña, string usuario)
+       /* public bool ValidarUsuario(string contraseña, string usuario)
         {
             SQLiteConnection sQLiteConnection = null;
             try
@@ -82,7 +82,7 @@ namespace H_P_II_Clase4
                     sQLiteConnection.Close();
             }
             return false;
-        }
+        }*/
 
         public bool UsuarioExiste(string usuario)
         {
@@ -114,7 +114,7 @@ namespace H_P_II_Clase4
 
         private void BntOK_Click(object sender, EventArgs e)
         {
-           string usuario = txtUser.Text.Trim();
+            string usuario = txtUser.Text.Trim();
             string contraseña = txtPass.Text.Trim();
 
             if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(contraseña))
@@ -122,32 +122,39 @@ namespace H_P_II_Clase4
                 MessageBox.Show("Por favor, ingrese usuario y contraseña.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (!UsuarioExiste(usuario))
-            {
-                MessageBox.Show("El usuario no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
-            if (ValidarUsuario(contraseña,usuario))
+            try
             {
-                MessageBox.Show("Inicio de sesion exito!");
-                Form2 f = new Form2(txtUser.Text);
-                f.Show();
-                this.Hide();
-            }
-            else
-            {
-                intentosFallidos++;
-                MessageBox.Show($"Usuario o contraseña incorrectos. Intento {intentosFallidos} de {MAX_INTENTOS}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                if (intentosFallidos >= MAX_INTENTOS)
+                using (SQLiteConnection conexion = ConexionBD.Instancia.ObtenerConexion())
                 {
-                    MessageBox.Show("Demasiados intentos fallidos. Intente más tarde.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    BntOK.Enabled = false; // Deshabilita el botón de login
+                    string query = "SELECT COUNT(*) FROM tblUser WHERE name = @usuario AND pass = @contraseña";
+                    using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                    {
+                        cmd.Parameters.Add("@usuario", usuario);
+                        cmd.Parameters.Add("@contraseña", contraseña);
+
+                        int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Inicio de sesión exitoso.", "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Form2 f = new Form2(usuario);
+                            f.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Usuario o contraseña incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al iniciar sesión: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-           
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
