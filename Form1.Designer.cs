@@ -185,15 +185,15 @@
             // 
             // imgLogin
             // 
-            this.imgLogin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imgLogin.Image = global::H_P_II_Clase4.Properties.Resources.Logos1;
-            this.imgLogin.Location = new System.Drawing.Point(0, 0);
-            this.imgLogin.Name = "imgLogin";
-            this.imgLogin.Size = new System.Drawing.Size(376, 403);
-            this.imgLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgLogin.TabIndex = 0;
-            this.imgLogin.TabStop = false;
-//            this.imgLogin.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::H_P_II_Clase4.Properties.Resources.Logos1;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(376, 403);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // formPrinci
             // 
