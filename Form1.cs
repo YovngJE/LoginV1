@@ -15,14 +15,14 @@ namespace H_P_II_Clase4
     public partial class formPrinci : Form
     {
         
-        private int intentosFallidos = 0;
-        private const int MAX_INTENTOS = 3;
+        
         public formPrinci()
         {
             InitializeComponent();
             Conexion();
         }
-
+        private int intentosFallidos = 0;
+        private const int MAX_INTENTOS = 3;
         public void Conexion()
         {
             SQLiteConnection conexion_sqlite = null;
@@ -37,10 +37,10 @@ namespace H_P_II_Clase4
                 cmd_sqlite.ExecuteNonQuery();
 
                 cmd_sqlite.CommandText = @"
-        INSERT INTO tblUser (name, pass) VALUES ('YE', '123');
+        INSERT  INTO tblUser (name, pass) VALUES ('YE', '123');
         INSERT  INTO tblUser (name, pass) VALUES ('Trainer', '102458J');
-        INSERT INTO tblUser (name, pass) VALUES ('Blackie', 'Perea17');
-        INSERT INTO tblUser (name, pass) VALUES ('Jeni', '1025');";
+        INSERT  INTO tblUser (name, pass) VALUES ('Blackie', 'Perea17');
+        INSERT  INTO tblUser (name, pass) VALUES ('Jeni', '1025');";
                 cmd_sqlite.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -86,29 +86,14 @@ namespace H_P_II_Clase4
 
         public bool UsuarioExiste(string usuario)
         {
-            SQLiteConnection sQLiteConnection = null;
-            try
+            SQLiteConnection sQLiteConnection = new SQLiteConnection("Data Source=database.db;Version=3;");
+            sQLiteConnection.Open();
+            using (SQLiteCommand cmd = new SQLiteCommand("SELECT COUNT(*) FROM tblUser WHERE name = @usuario", sQLiteConnection))
             {
-                sQLiteConnection = new SQLiteConnection("Data Source=database.db;Version=3;");
-                sQLiteConnection.Open();
-
-                using (SQLiteCommand cmd = new SQLiteCommand("SELECT COUNT(*) FROM tblUser WHERE name = @usuario", sQLiteConnection))
-                {
-                    cmd.Parameters.Add("@usuario", usuario);
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
-                    return count > 0;
-                }
+                cmd.Parameters.Add("@usuario", usuario);
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                return count > 0;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al verificar existencia del usuario:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                if (sQLiteConnection != null && sQLiteConnection.State == ConnectionState.Open)
-                    sQLiteConnection.Close();
-            }
-            return false;
         }
 
 
@@ -172,6 +157,21 @@ namespace H_P_II_Clase4
                 txtPass.Text = "";
                 txtUser.Focus(); // Pone el cursor en el campo de usuario
             }
+        }
+
+        private void lblMensajeRegistro_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelLogin_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
