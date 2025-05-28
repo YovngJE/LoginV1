@@ -19,7 +19,7 @@ namespace H_P_II_Clase4
         {
             try
             {
-                // Asegurarse que la ruta sea correcta:
+               
                 string rutaDB = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "database.db");
 
                 if (!File.Exists(rutaDB))
